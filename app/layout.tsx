@@ -25,6 +25,19 @@ export const metadata: Metadata = {
   description,
   applicationName: companyInfo.name,
   alternates: { canonical: "/" },
+  // The utility bar in Header renders the address and fax number as plain
+  // text. Without this, iOS Safari's Data Detectors silently wrap
+  // phone/address-shaped text in their own <a> before React hydrates,
+  // splitting a text node React expects into an element it didn't render —
+  // "Expected server HTML to contain a matching text node for ... in span."
+  // Mobile-only and first-load-only because hydration runs once, on
+  // whichever page is loaded first; client-side <Link> navigation never
+  // re-hydrates. See github.com/Laurenzrae/symprotek-website/issues/1.
+  formatDetection: {
+    telephone: false,
+    address: false,
+    email: false,
+  },
   openGraph: {
     type: "website",
     siteName: companyInfo.name,
