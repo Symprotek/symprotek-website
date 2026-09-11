@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { companyInfo } from "@/lib/data";
+import type { ApplicationPayload } from "@/lib/application";
 import type { ContactPayload } from "@/lib/validation";
 
 /**
@@ -72,6 +73,94 @@ function autoReplyHtml(payload: ContactPayload) {
       ${companyInfo.phone}
     </div>
   </div>`;
+}
+
+function applicationInternalHtml(
+  payload: ApplicationPayload,
+  resumeName: string,
+) {
+  return `<div style="font-family:Arial,Helvetica,sans-serif;max-width:640px;">
+    <h2 style="color:#0b2044;font-size:18px;margin:0 0 4px;">New job application</h2>
+    <p style="color:#5b6879;font-size:13px;margin:0 0 20px;">
+      Submitted from the symprotek.com careers page.
+    </p>
+    <table style="border-collapse:collapse;width:100%;">
+      ${row("Name", payload.name)}
+      ${row("Email", payload.email)}
+      ${row("Phone", payload.phone)}
+      ${row("Role", payload.role || "General application")}
+      ${row("Interview availability", payload.availability)}
+      ${row("Resume", resumeName)}
+    </table>
+  </div>`;
+}
+
+function applicationAutoReplyHtml(payload: ApplicationPayload) {
+  const firstName = payload.name.trim().split(/\s+/)[0] || "there";
+  return `<div style="font-family:Arial,Helvetica,sans-serif;max-width:640px;color:#0b2044;">
+    <p style="font-size:15px;line-height:1.6;">Hi ${escapeHtml(firstName)},</p>
+    <p style="font-size:15px;line-height:1.6;">
+      Thanks for applying to Symprotek${payload.role ? ` for the ${escapeHtml(payload.role)} role` : ""}.
+      We've received your resume and a member of our team will review it and
+      follow up.
+    </p>
+    <p style="font-size:15px;line-height:1.6;">
+      If your request is urgent, call us directly at
+      <a href="tel:${companyInfo.phone.replace(/[^0-9+]/g, "")}" style="color:#e2231a;">${companyInfo.phone}</a>.
+    </p>
+    <div style="margin-top:24px;padding-top:16px;border-top:1px solid #e5e5e5;color:#5b6879;font-size:13px;line-height:1.6;">
+      <strong style="color:#0b2044;">${companyInfo.name}</strong><br />
+      ${companyInfo.address}<br />
+      ${companyInfo.phone}
+    </div>
+  </div>`;
+}
+
+/**
+ * Sends the internal notification and the applicant auto-reply. Mirrors
+ * sendContactEmail below — same throw/log split (a failed internal send is
+ * surfaced to the caller, a failed auto-reply is only logged since the
+ * application is already captured) — but the resume attachment is required
+ * here rather than optional.
+ */
+export async function sendApplicationEmail(
+  payload: ApplicationPayload,
+  resume: ContactAttachment,
+) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error("RESEND_API_KEY is not configured.");
+  }
+
+  const resend = new Resend(apiKey);
+  const subject = payload.role.trim()
+    ? `Job application — ${payload.name} (${payload.role})`
+    : `Job application — ${payload.name}`;
+
+  const { error } = await resend.emails.send({
+    from: FROM_EMAIL,
+    to: TO_EMAIL,
+    replyTo: payload.email,
+    subject,
+    html: applicationInternalHtml(payload, resume.filename),
+    attachments: [{ filename: resume.filename, content: resume.content }],
+  });
+
+  if (error) {
+    throw new Error(error.message || "Failed to send the application email.");
+  }
+
+  try {
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: payload.email,
+      replyTo: TO_EMAIL,
+      subject: "We've received your application — Symprotek Corporation",
+      html: applicationAutoReplyHtml(payload),
+    });
+  } catch (autoReplyError) {
+    console.error("Application auto-reply failed:", autoReplyError);
+  }
 }
 
 /**
