@@ -56,7 +56,7 @@ export function localBusinessSchema() {
     telephone: companyInfo.phone,
     faxNumber: companyInfo.fax,
     address: postalAddress,
-    // TODO — confirm against real business hours before launch.
+    // Confirmed business hours. Keep in sync with companyInfo.hours.
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -67,8 +67,8 @@ export function localBusinessSchema() {
           "Thursday",
           "Friday",
         ],
-        opens: "08:00",
-        closes: "17:00",
+        opens: "09:00",
+        closes: "14:00",
       },
     ],
     areaServed: { "@type": "Country", name: "United States" },

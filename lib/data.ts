@@ -389,9 +389,13 @@ export const companyInfo = {
   fax: "(408) 956-9400",
   email: "sales@symprotek.com",
   foundedYear: 1994,
-  // TODO — confirm actual business hours before launch. Used in LocalBusiness
-  // structured data, where an inaccurate value is worse than none.
-  hours: "Monday – Friday, 8:00 AM – 5:00 PM PT",
+  // Confirmed business hours. Also feeds LocalBusiness structured data via
+  // lib/schema.ts — keep the two in sync.
+  hours: "Monday – Friday, 9:00 AM – 2:00 PM PT",
+  // Shown on the Request a Quote page (/contact) only. Deliberately separate
+  // from `hours`, which covers the rest of the site and the LocalBusiness
+  // structured data in lib/schema.ts.
+  quoteHours: "Monday – Friday, 6:30 AM – 3:00 PM PT",
 };
 
 export const siteUrl =

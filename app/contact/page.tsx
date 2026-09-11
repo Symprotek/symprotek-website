@@ -61,7 +61,7 @@ export default function ContactPage() {
                 </li>
                 <li className="flex items-start gap-2.5 py-1.5">
                   <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-red" />
-                  <span>{companyInfo.hours}</span>
+                  <span>{companyInfo.quoteHours}</span>
                 </li>
               </ul>
             </div>

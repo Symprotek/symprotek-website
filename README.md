@@ -62,15 +62,12 @@ code. Nothing here is a code defect; each needs information only Symprotek has.
 5. **Equipment inventory** — `app/facility/page.tsx` lists process capabilities
    but no machines, line count, or square footage.
 6. **Company history and leadership** — `app/about/page.tsx`.
-7. **Business hours** — `companyInfo.hours` in `lib/data.ts` is a placeholder
-   and feeds `LocalBusiness` structured data, where a wrong value is worse
-   than none.
-8. **Open roles** — `openRoles` in `app/careers/page.tsx` is empty; the page
+7. **Open roles** — `openRoles` in `app/careers/page.tsx` is empty; the page
    shows a "no openings" state until it is populated.
-9. **Mutual NDA PDF** — add to `/public/documents/` and set
+8. **Mutual NDA PDF** — add to `/public/documents/` and set
    `NDA_DOCUMENT_PATH` in `app/nda/page.tsx`.
-10. **Legal review** — `app/privacy/page.tsx` and `app/terms/page.tsx` carry
-    visible "pending legal review" banners. Remove them once counsel approves.
+9. **Legal review** — `app/privacy/page.tsx` and `app/terms/page.tsx` carry
+   visible "pending legal review" banners. Remove them once counsel approves.
 
 ## Known gaps (deliberate, not defects)
 
