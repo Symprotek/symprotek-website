@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  /* Sticky header is ~72px on mobile, ~112px with the utility bar. Keeps
+     in-page anchors (the FAQ category jumps) from landing under it. */
+  scroll-padding-top: 6rem;
+}
+
+body {
+  /* Navy-tinted near-black rather than neutral #1f1f1f, so body copy sits in
+     the same family as the navy headings instead of reading as a separate
+     grey. */
+  @apply bg-white text-[#16202e] antialiased;
+}
+
+/* iOS Safari inflates font sizes in landscape unless this is pinned. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Form controls at <16px cause iOS to zoom the viewport on focus, which then
+   leaves the user zoomed in with the layout shifted. Hold 16px through the
+   mobile range and drop to the design's 14px only once we're past it. */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+@media (min-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 0.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer utilities {
+  .nav-link {
+    @apply relative py-2 text-sm font-medium text-brand-dark transition-colors hover:text-brand-red;
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute -bottom-0.5 left-0 h-0.5 w-0 bg-brand-red transition-all duration-300 ease-out;
+  }
+
+  .nav-link:hover::after,
+  .nav-link[data-active="true"]::after {
+    @apply w-full;
+  }
+
+  /* Buttons keep a 44px minimum height so they clear the touch-target floor
+     on mobile without changing how they look on desktop. */
+  .btn-primary {
+    @apply inline-flex min-h-[2.75rem] items-center justify-center gap-2 rounded-lg bg-brand-red px-6 py-3 text-sm font-semibold text-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-red-dark hover:shadow-lift;
+  }
+
+  .btn-outline {
+    @apply inline-flex min-h-[2.75rem] items-center justify-center gap-2 rounded-lg border-2 border-white px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:text-brand-red;
+  }
+
+  /* Icon-only controls in the header. 44x44 is the accessible minimum. */
+  .tap-target {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-lg;
+  }
+
+  /* Form fields: 44px min height, matching the buttons they sit beside. */
+  .field {
+    @apply mt-1.5 min-h-[2.75rem] w-full rounded-lg border border-gray-300 px-3.5 py-2.5 text-brand-dark outline-none transition-colors focus:border-brand-red focus:ring-1 focus:ring-brand-red;
+  }
+
+  .field-error {
+    @apply border-brand-red;
+  }
+}
