@@ -47,8 +47,9 @@ export default function HomePage() {
               Industries We Serve
             </h2>
             <p className="mt-3 text-base leading-relaxed text-brand-gray">
-              Regulated, long-lifecycle programs where traceability and a
-              domestic supply chain are requirements, not preferences.
+              Electronics manufacturing for defense, medical, industrial, and
+              semiconductor programs, backed by traceability, quality systems,
+              and responsive lifecycle support.
             </p>
           </div>
 
