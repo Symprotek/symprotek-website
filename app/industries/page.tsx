@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ExternalLink } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ContentGrid from "@/components/ContentGrid";
 import CtaSection from "@/components/CtaSection";
@@ -57,9 +58,23 @@ export default function IndustriesPage() {
             {certifications.map((certification) => (
               <li
                 key={certification.label}
-                className="rounded-full border border-gray-200 bg-brand-light px-3 py-1.5 text-xs font-semibold text-brand-dark"
+                className="flex min-h-11 items-center gap-2 rounded-lg border border-gray-200 bg-brand-light px-3 py-2 text-xs font-semibold text-brand-dark"
               >
-                {certification.label}
+                <span>{certification.label}</span>
+                {certification.certPdf && (
+                  <a
+                    href={certification.certPdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${certification.validity ? "View historical" : "View"} ${certification.label} documentation (PDF, opens in a new tab)`}
+                    className="inline-flex min-h-7 items-center gap-1 rounded px-1.5 text-brand-red transition-colors hover:bg-white hover:text-brand-red-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red"
+                  >
+                    {certification.validity
+                      ? "Historical document"
+                      : "View documentation"}
+                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                  </a>
+                )}
               </li>
             ))}
           </ul>
