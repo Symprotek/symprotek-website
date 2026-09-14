@@ -128,7 +128,7 @@ export default function Hero() {
           {heroCerts.map((cert) => (
             <li
               key={cert.label}
-              className="flex h-14 items-center justify-center rounded-lg bg-white px-4 shadow-soft sm:w-40"
+              className="flex h-16 items-center justify-center rounded-lg bg-white px-5 shadow-soft sm:h-20 sm:w-48"
             >
               {cert.logo ? (
                 /*
@@ -141,9 +141,9 @@ export default function Hero() {
                 <Image
                   src={cert.logo}
                   alt={`${cert.label} certified`}
-                  width={160}
-                  height={80}
-                  className="max-h-8 w-full rounded object-contain mix-blend-multiply"
+                  width={192}
+                  height={96}
+                  className="max-h-10 w-full rounded object-contain mix-blend-multiply sm:max-h-12"
                 />
               ) : (
                 <span className="text-center text-xs font-bold uppercase tracking-wide text-brand-dark">
