@@ -43,7 +43,7 @@ export default function HomePage() {
       <section className="bg-white py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-[#0066b8] sm:text-4xl">
               Industries We Serve
             </h2>
             <p className="mt-3 text-base leading-relaxed text-brand-gray">
@@ -59,18 +59,18 @@ export default function HomePage() {
                 <Link
                   key={industry.slug}
                   href={`/industries/${industry.slug}`}
-                  className="group flex flex-col rounded-xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red hover:shadow-lift"
+                  className="group flex flex-col rounded-xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#d13438] hover:shadow-lift"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-light text-brand-red transition-colors group-hover:bg-brand-red group-hover:text-white">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-light text-[#d13438] transition-colors group-hover:bg-[#d13438] group-hover:text-white">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>
-                  <h3 className="mt-4 text-base font-bold text-brand-dark transition-colors group-hover:text-brand-red">
+                  <h3 className="mt-4 text-base font-bold text-[#0066b8] transition-colors group-hover:text-[#d13438]">
                     {industry.title}
                   </h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-brand-gray">
                     {industry.summary}
                   </p>
-                  <span className="mt-4 text-sm font-semibold text-brand-red">
+                  <span className="mt-4 text-sm font-semibold text-[#d13438]">
                     Learn more →
                   </span>
                 </Link>
@@ -83,7 +83,7 @@ export default function HomePage() {
       <section className="border-t border-gray-100 bg-brand-light py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-2xl font-extrabold tracking-tight text-brand-dark sm:text-3xl">
+            <h2 className="text-2xl font-extrabold tracking-tight text-[#0066b8] sm:text-3xl">
               Certified for Regulated Work
             </h2>
             <p className="mt-3 text-base leading-relaxed text-brand-gray">
@@ -94,14 +94,14 @@ export default function HomePage() {
 
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {certifications.map((cert) => (
-              <CertBadge key={cert.label} cert={cert} />
+              <CertBadge key={cert.label} cert={cert} size="large" />
             ))}
           </div>
 
           <div className="mt-8 text-center">
             <Link
               href="/quality"
-              className="text-sm font-semibold text-brand-red transition-colors hover:text-brand-red-dark"
+              className="text-sm font-semibold text-[#d13438] transition-colors hover:text-[#ab2b2e]"
             >
               View our quality system &amp; certificates →
             </Link>
@@ -109,7 +109,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <CtaSection />
+      <CtaSection tone="vibrant" />
     </>
   );
 }

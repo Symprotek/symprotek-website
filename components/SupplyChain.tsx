@@ -18,26 +18,29 @@ const CAPABILITIES = [
   "Warranty & aftermarket service",
 ];
 
+/** Homepage-only vibrant treatment: blue (#0066b8) instead of the site-wide
+ *  navy. Labels/icons on this band use white rather than the accent red,
+ *  since red-on-blue falls well short of readable contrast here. */
 export default function SupplyChain() {
   return (
-    <section className="bg-brand-dark py-12 sm:py-16 lg:py-20">
+    <section className="bg-[#0066b8] py-12 sm:py-16 lg:py-20">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-red">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
             Supply Chain Built Into Every Program
           </p>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             Manufacturing Without
             <br className="hidden sm:block" /> Supply Chain Surprises
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-slate-300">
+          <p className="mt-5 text-base leading-relaxed text-blue-50/90">
             We combine global sourcing with local fulfillment and proactive
             obsolescence tracking, so a discontinued part or an allocation
             window doesn&apos;t stop a program that still has years of service
             ahead of it.
           </p>
 
-          <Link href="/services/supply-chain" className="btn-primary mt-8">
+          <Link href="/services/supply-chain" className="btn-primary-vibrant mt-8">
             Explore Supply Chain Solutions
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
@@ -47,13 +50,13 @@ export default function SupplyChain() {
           {CAPABILITIES.map((item) => (
             <li
               key={item}
-              className="flex items-start gap-3 rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3"
+              className="flex items-start gap-3 rounded-lg border border-white/15 bg-white/[0.06] px-4 py-3"
             >
               <Check
-                className="mt-0.5 h-4 w-4 shrink-0 text-brand-red"
+                className="mt-0.5 h-4 w-4 shrink-0 text-white"
                 aria-hidden="true"
               />
-              <span className="text-sm leading-snug text-gray-200">{item}</span>
+              <span className="text-sm leading-snug text-gray-100">{item}</span>
             </li>
           ))}
         </ul>

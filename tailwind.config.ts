@@ -16,12 +16,14 @@ const config: Config = {
          *
          * `dark` doubles as the heading colour on light backgrounds, so it is
          * a deep navy rather than a mid blue — it needs to carry body-copy
-         * contrast, not just work as a background.
+         * contrast, not just work as a background. Lightened one shade from
+         * #0b2044 for a slightly softer navy while keeping ~14:1 contrast on
+         * white (still comfortably above the ~4.5:1 AA requirement for text).
          */
         brand: {
           red: "#e2231a",
           "red-dark": "#b91b13",
-          dark: "#0b2044",
+          dark: "#132c54",
           gray: "#5b6879",
           light: "#f1f5fa",
         },

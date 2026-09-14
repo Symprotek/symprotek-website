@@ -8,10 +8,29 @@ import type { Certification } from "@/lib/data";
  *
  * (The previous implementation applied a `grayscale` CSS filter to a text
  * span, which is a no-op — a placeholder for logo images that never landed.)
+ *
+ * `size="large"` is a homepage-only variant: a bigger box and logo, and a
+ * borderless card so the badge blends into the section background instead of
+ * reading as a separate white tile. The Capabilities page keeps the default
+ * size and border untouched.
  */
-export function CertBadge({ cert }: { cert: Certification }) {
+export function CertBadge({
+  cert,
+  size = "default",
+}: {
+  cert: Certification;
+  size?: "default" | "large";
+}) {
+  const isLarge = size === "large";
+
   return (
-    <div className="flex h-20 items-center justify-center rounded-xl border border-gray-200 bg-white px-4 py-3 shadow-soft transition-shadow duration-200 hover:shadow-lift sm:h-24 sm:px-5 sm:py-4">
+    <div
+      className={
+        isLarge
+          ? "flex h-24 items-center justify-center rounded-xl border border-transparent bg-white px-5 py-4 shadow-soft transition-shadow duration-200 hover:shadow-lift sm:h-28 sm:px-6 sm:py-5"
+          : "flex h-20 items-center justify-center rounded-xl border border-gray-200 bg-white px-4 py-3 shadow-soft transition-shadow duration-200 hover:shadow-lift sm:h-24 sm:px-5 sm:py-4"
+      }
+    >
       {cert.logo ? (
         /*
           The supplied logos share a 234px height but range from 0.74 to 2.38
@@ -23,12 +42,18 @@ export function CertBadge({ cert }: { cert: Certification }) {
         <Image
           src={cert.logo}
           alt={`${cert.label} certification`}
-          width={140}
-          height={64}
+          width={isLarge ? 172 : 140}
+          height={isLarge ? 80 : 64}
           className="max-h-full w-full object-contain"
         />
       ) : (
-        <span className="text-center text-xs font-bold uppercase tracking-wide text-brand-dark sm:text-sm">
+        <span
+          className={
+            isLarge
+              ? "text-center text-sm font-bold uppercase tracking-wide text-[#0066b8] sm:text-base"
+              : "text-center text-xs font-bold uppercase tracking-wide text-brand-dark sm:text-sm"
+          }
+        >
           {cert.label}
         </span>
       )}

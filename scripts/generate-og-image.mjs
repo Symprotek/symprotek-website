@@ -23,7 +23,7 @@ const HEIGHT = 630;
 
 /* Keep in sync with the `brand` colours in tailwind.config.ts. */
 const BRAND_RED = "#e2231a";
-const BRAND_DARK = "#0b2044";
+const BRAND_DARK = "#132c54";
 
 const TAGLINE = "Turnkey PCB Assembly &amp; Global Supply Chain";
 const SUBLINE = "Milpitas, California · Since 1994";

@@ -102,8 +102,8 @@ export default function Header() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex shrink-0 flex-col leading-tight">
-            <span className="text-2xl font-extrabold tracking-tight text-brand-dark">
-              Sym<span className="text-brand-red">protek</span>
+            <span className="text-2xl font-extrabold tracking-tight text-brand-red">
+              Symprotek
             </span>
             <span className="text-xs font-medium text-brand-gray">
               PCB Assembly &amp; Supply Chain

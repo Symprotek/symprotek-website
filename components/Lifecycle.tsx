@@ -13,13 +13,13 @@ export default function Lifecycle() {
     <section className="border-y border-gray-100 bg-brand-light py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-red">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d13438]">
             One Partner, Every Step
           </p>
           {/* Deliberately not "From Prototype to Production" — that is
               the hero's h1, and repeating it verbatim two sections later read
               as a duplicated headline rather than a new section. */}
-          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-brand-dark sm:text-3xl lg:text-4xl">
+          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-[#0066b8] sm:text-3xl lg:text-4xl">
             How a Program Moves Through Symprotek
           </h2>
         </div>
@@ -31,10 +31,10 @@ export default function Lifecycle() {
               className="flex items-start lg:flex-1 lg:items-center"
             >
               <div className="flex flex-1 flex-col items-center px-1 text-center">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-brand-red bg-white text-sm font-bold text-brand-red">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#d13438] bg-white text-sm font-bold text-[#d13438]">
                   {index + 1}
                 </span>
-                <h3 className="mt-3 text-sm font-bold text-brand-dark">
+                <h3 className="mt-3 text-sm font-bold text-[#0066b8]">
                   {stage.label}
                 </h3>
                 <p className="mt-1 text-xs leading-relaxed text-brand-gray">
@@ -44,7 +44,7 @@ export default function Lifecycle() {
 
               {index < lifecycleStages.length - 1 && (
                 <ChevronRight
-                  className="hidden h-5 w-5 shrink-0 text-brand-red/40 lg:block"
+                  className="hidden h-5 w-5 shrink-0 text-[#d13438]/40 lg:block"
                   aria-hidden="true"
                 />
               )}
@@ -60,7 +60,7 @@ export default function Lifecycle() {
             >
               <dt className="sr-only">{stat.label}</dt>
               <dd>
-                <span className="block text-3xl font-extrabold text-brand-red sm:text-4xl">
+                <span className="block text-3xl font-extrabold text-[#d13438] sm:text-4xl">
                   {stat.value}
                 </span>
                 <span className="mt-1 block text-xs font-medium text-brand-gray sm:text-sm">
