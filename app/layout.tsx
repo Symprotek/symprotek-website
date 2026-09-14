@@ -65,7 +65,7 @@ export const viewport: Viewport = {
   // is an accessibility failure, and the layout does not need it.
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0b2044" },
+    { media: "(prefers-color-scheme: dark)", color: "#132c54" },
   ],
 };
 
