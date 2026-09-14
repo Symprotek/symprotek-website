@@ -89,7 +89,7 @@ export const faqs: FaqItem[] = [
     category: "Logistics",
     question: "Where are your boards assembled?",
     answer:
-      "All assembly is performed at our facility at 950 Yosemite Drive, Milpitas, California — in the heart of Silicon Valley.",
+      "All assembly is performed at our facility at 950 Yosemite Drive, Milpitas, California, in the heart of Silicon Valley.",
   },
   {
     category: "Logistics",

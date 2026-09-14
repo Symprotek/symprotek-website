@@ -94,7 +94,7 @@ export default function TermsPage() {
               aria-hidden="true"
             />
             <p className="text-sm leading-relaxed text-amber-900">
-              <strong>Draft — pending legal review.</strong> These are website
+              <strong>Draft: pending legal review.</strong> These are website
               terms of use only and are not terms of sale. Have counsel review
               before publishing, and consider adding separate purchase-order
               terms and conditions, which sourcing teams look for during

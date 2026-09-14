@@ -104,7 +104,7 @@ export default function Hero() {
 
           <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-300 sm:mt-6 sm:text-lg">
             Turnkey PCB assembly, engineering support, and a supply chain built
-            for regulated, long-lifecycle programs — assembled in the USA at our
+            for regulated, long-lifecycle programs, assembled in the USA at our
             Milpitas, California facility.
           </p>
 

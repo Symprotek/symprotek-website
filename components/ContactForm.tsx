@@ -225,7 +225,7 @@ export default function ContactForm() {
           name="message"
           rows={5}
           aria-invalid={Boolean(errors.message)}
-          placeholder="Tell us about your build — board complexity, quantities, target turn time, and anything else we should know."
+          placeholder="Tell us about your build: board complexity, quantities, target turn time, and anything else we should know."
           className={`resize-none ${errors.message ? ERROR_FIELD_CLASS : FIELD_CLASS}`}
         />
         <FieldError message={errors.message} />
