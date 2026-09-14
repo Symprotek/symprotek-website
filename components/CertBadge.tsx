@@ -8,10 +8,19 @@ import type { Certification } from "@/lib/data";
  *
  * (The previous implementation applied a `grayscale` CSS filter to a text
  * span, which is a no-op — a placeholder for logo images that never landed.)
+ *
+ * The supplied logos are stock registrar/agency marks, most baked onto an
+ * opaque white rectangle rather than a transparent background. Sitting those
+ * on the card's own white background as-is reads as a separate sticker with
+ * a visible seam. `mix-blend-multiply` makes the white pixels drop out and
+ * merge into the card, so only the mark itself shows — the same trick used
+ * for logo walls generally. `rounded-md` keeps the one asset that carries an
+ * actual colour fill (ISO 13485's teal banner) looking like an intentional
+ * chip rather than a pasted-in rectangle.
  */
 export function CertBadge({ cert }: { cert: Certification }) {
   return (
-    <div className="flex h-20 items-center justify-center rounded-xl border border-gray-200 bg-white px-4 py-3 shadow-soft transition-shadow duration-200 hover:shadow-lift sm:h-24 sm:px-5 sm:py-4">
+    <div className="flex h-24 items-center justify-center rounded-xl border border-gray-200 bg-white px-5 py-4 shadow-soft transition-shadow duration-200 hover:shadow-lift sm:h-28 sm:px-6 sm:py-5">
       {cert.logo ? (
         /*
           The supplied logos share a 234px height but range from 0.74 to 2.38
@@ -23,9 +32,9 @@ export function CertBadge({ cert }: { cert: Certification }) {
         <Image
           src={cert.logo}
           alt={`${cert.label} certification`}
-          width={140}
-          height={64}
-          className="max-h-full w-full object-contain"
+          width={160}
+          height={76}
+          className="max-h-full w-full rounded-md object-contain mix-blend-multiply"
         />
       ) : (
         <span className="text-center text-xs font-bold uppercase tracking-wide text-brand-dark sm:text-sm">
@@ -47,7 +56,7 @@ export function CertCard({ cert }: { cert: Certification }) {
             alt={`${cert.label} certification`}
             width={72}
             height={72}
-            className="h-14 w-14 shrink-0 object-contain"
+            className="h-16 w-16 shrink-0 rounded-md object-contain mix-blend-multiply"
           />
         ) : (
           <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-brand-light">
