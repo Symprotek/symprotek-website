@@ -128,7 +128,7 @@ export default function Hero() {
           {heroCerts.map((cert) => (
             <li
               key={cert.label}
-              className="flex h-16 items-center justify-center rounded-lg bg-white px-5 shadow-soft sm:h-20 sm:w-48"
+              className="flex h-14 items-center justify-center rounded-lg bg-white px-3 shadow-soft sm:h-16 sm:w-40"
             >
               {cert.logo ? (
                 /*
@@ -137,13 +137,18 @@ export default function Hero() {
                   pill's own white (previously bg-white/95, a hair off pure
                   white) that rectangle showed as a faint seam. mix-blend
                   -multiply drops the logo's white into the pill instead.
+
+                  max-h-full (not a fixed max-h-N) so the logo scales up to
+                  fill the pill's actual height instead of leaving a fixed
+                  margin — enlarging the box no longer requires separately
+                  tuning the logo's own cap.
                 */
                 <Image
                   src={cert.logo}
                   alt={`${cert.label} certified`}
-                  width={192}
-                  height={96}
-                  className="max-h-10 w-full rounded object-contain mix-blend-multiply sm:max-h-12"
+                  width={160}
+                  height={80}
+                  className="max-h-full w-full rounded object-contain mix-blend-multiply"
                 />
               ) : (
                 <span className="text-center text-xs font-bold uppercase tracking-wide text-brand-dark">
