@@ -94,7 +94,7 @@ export default function HomePage() {
 
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {certifications.map((cert) => (
-              <CertBadge key={cert.label} cert={cert} />
+              <CertBadge key={cert.label} cert={cert} variant="flush" />
             ))}
           </div>
 
