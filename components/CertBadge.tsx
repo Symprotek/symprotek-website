@@ -37,7 +37,7 @@ export function CertBadge({
     <div
       className={
         isFlush
-          ? "flex h-28 items-center justify-center px-3 sm:h-32"
+          ? "flex h-20 items-center justify-center px-2 sm:h-24"
           : "flex h-24 items-center justify-center rounded-xl border border-gray-200 bg-white px-5 py-4 shadow-soft transition-shadow duration-200 hover:shadow-lift sm:h-28 sm:px-6 sm:py-5"
       }
     >
@@ -52,8 +52,8 @@ export function CertBadge({
         <Image
           src={cert.logo}
           alt={`${cert.label} certification`}
-          width={isFlush ? 220 : 160}
-          height={isFlush ? 104 : 76}
+          width={isFlush ? 176 : 160}
+          height={isFlush ? 84 : 76}
           className="max-h-full w-full rounded-md object-contain mix-blend-multiply"
         />
       ) : (

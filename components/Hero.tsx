@@ -128,15 +128,22 @@ export default function Hero() {
           {heroCerts.map((cert) => (
             <li
               key={cert.label}
-              className="flex h-14 items-center justify-center rounded-lg bg-white/95 px-4 shadow-soft sm:w-40"
+              className="flex h-14 items-center justify-center rounded-lg bg-white px-4 shadow-soft sm:w-40"
             >
               {cert.logo ? (
+                /*
+                  Same blend as CertBadge/CertCard: most of these logos are
+                  baked onto an opaque white rectangle, and against this
+                  pill's own white (previously bg-white/95, a hair off pure
+                  white) that rectangle showed as a faint seam. mix-blend
+                  -multiply drops the logo's white into the pill instead.
+                */
                 <Image
                   src={cert.logo}
                   alt={`${cert.label} certified`}
                   width={160}
                   height={80}
-                  className="max-h-8 w-full object-contain"
+                  className="max-h-8 w-full rounded object-contain mix-blend-multiply"
                 />
               ) : (
                 <span className="text-center text-xs font-bold uppercase tracking-wide text-brand-dark">
