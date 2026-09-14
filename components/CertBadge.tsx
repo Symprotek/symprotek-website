@@ -13,14 +13,34 @@ import type { Certification } from "@/lib/data";
  * opaque white rectangle rather than a transparent background. Sitting those
  * on the card's own white background as-is reads as a separate sticker with
  * a visible seam. `mix-blend-multiply` makes the white pixels drop out and
- * merge into the card, so only the mark itself shows — the same trick used
- * for logo walls generally. `rounded-md` keeps the one asset that carries an
- * actual colour fill (ISO 13485's teal banner) looking like an intentional
- * chip rather than a pasted-in rectangle.
+ * merge into whatever is behind them, so only the mark itself shows — the
+ * same trick used for logo walls generally. `rounded-md` keeps the one asset
+ * that carries an actual colour fill (ISO 13485's teal banner) looking like
+ * an intentional chip rather than a pasted-in rectangle.
+ *
+ * `variant="flush"` drops the white card entirely (used on the homepage,
+ * whose section background is `brand-light`): with no white tile underneath,
+ * the multiply blend merges each logo's baked-in white area straight into
+ * the page instead of into a card, and the logo itself renders larger since
+ * it isn't competing with card padding for space.
  */
-export function CertBadge({ cert }: { cert: Certification }) {
+export function CertBadge({
+  cert,
+  variant = "card",
+}: {
+  cert: Certification;
+  variant?: "card" | "flush";
+}) {
+  const isFlush = variant === "flush";
+
   return (
-    <div className="flex h-24 items-center justify-center rounded-xl border border-gray-200 bg-white px-5 py-4 shadow-soft transition-shadow duration-200 hover:shadow-lift sm:h-28 sm:px-6 sm:py-5">
+    <div
+      className={
+        isFlush
+          ? "flex h-28 items-center justify-center px-3 sm:h-32"
+          : "flex h-24 items-center justify-center rounded-xl border border-gray-200 bg-white px-5 py-4 shadow-soft transition-shadow duration-200 hover:shadow-lift sm:h-28 sm:px-6 sm:py-5"
+      }
+    >
       {cert.logo ? (
         /*
           The supplied logos share a 234px height but range from 0.74 to 2.38
@@ -32,12 +52,18 @@ export function CertBadge({ cert }: { cert: Certification }) {
         <Image
           src={cert.logo}
           alt={`${cert.label} certification`}
-          width={160}
-          height={76}
+          width={isFlush ? 220 : 160}
+          height={isFlush ? 104 : 76}
           className="max-h-full w-full rounded-md object-contain mix-blend-multiply"
         />
       ) : (
-        <span className="text-center text-xs font-bold uppercase tracking-wide text-brand-dark sm:text-sm">
+        <span
+          className={
+            isFlush
+              ? "text-center text-sm font-bold uppercase tracking-wide text-brand-dark"
+              : "text-center text-xs font-bold uppercase tracking-wide text-brand-dark sm:text-sm"
+          }
+        >
           {cert.label}
         </span>
       )}
