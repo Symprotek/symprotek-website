@@ -84,7 +84,7 @@ export default function FaqPage() {
 
       <CtaSection
         heading="Still have a question?"
-        description="If your question isn't answered here, send it over — we'd rather answer it directly than have you guess."
+        description="If your question isn't answered here, send it over: we'd rather answer it directly than have you guess."
       />
     </>
   );

@@ -27,7 +27,7 @@ const sections = [
   {
     heading: "Information we collect",
     paragraphs: [
-      "We collect information you choose to give us. When you submit our contact form, we collect your name, and — if you provide them — your company name, email address, telephone number, the service you selected, the content of your message, and any file you attach.",
+      "We collect information you choose to give us. When you submit our contact form, we collect your name, and (if you provide them) your company name, email address, telephone number, the service you selected, the content of your message, and any file you attach.",
       "We do not require you to create an account, and we do not ask for payment information through this website.",
     ],
   },
@@ -90,7 +90,7 @@ export default function PrivacyPage() {
               aria-hidden="true"
             />
             <p className="text-sm leading-relaxed text-amber-900">
-              <strong>Draft — pending legal review.</strong> This policy
+              <strong>Draft: pending legal review.</strong> This policy
               accurately describes what this website does today, but it has not
               been reviewed by counsel. Have it reviewed before publishing the
               site, and remove this notice once approved.

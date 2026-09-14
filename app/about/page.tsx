@@ -8,7 +8,7 @@ import { companyInfo, industries } from "@/lib/data";
 export const metadata: Metadata = {
   title: "About Symprotek",
   description:
-    "Symprotek Corporation has built electronics in Milpitas, California since 1994 — an ITAR registered, SBA 8(a) certified contract manufacturer serving defense, medical, and federal programs.",
+    "Symprotek Corporation has built electronics in Milpitas, California since 1994, an ITAR registered, SBA 8(a) certified contract manufacturer serving defense, medical, and federal programs.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About Symprotek Corporation",
@@ -37,7 +37,7 @@ const principles = [
   },
   {
     heading: "Built where we say it is built",
-    body: "Every board is assembled at our Milpitas facility. For customers with export control obligations or domestic content requirements, that is not a marketing line — it is the reason the work can be placed here at all.",
+    body: "Every board is assembled at our Milpitas facility. For customers with export control obligations or domestic content requirements, that is not a marketing line. It is the reason the work can be placed here at all.",
   },
   {
     heading: "Certified before it is convenient",
@@ -77,7 +77,7 @@ export default function AboutPage() {
               We stayed put. Every board we ship is assembled at our own
               facility in the middle of Silicon Valley, by people our customers
               can meet, on lines they can walk. For defense, medical, and
-              federal programs, that is a requirement rather than a preference —
+              federal programs, that is a requirement rather than a preference,
               and for the semiconductor equipment makers headquartered a few
               exits away, it means an engineer can be on our floor the same
               afternoon a build question comes up.
@@ -123,7 +123,7 @@ export default function AboutPage() {
                 Where we are
               </h2>
               <p className="mt-4 text-base leading-relaxed text-brand-gray">
-                Our facility sits at {companyInfo.address} — inside the
+                Our facility sits at {companyInfo.address}, inside the
                 semiconductor equipment corridor, within driving distance of
                 most of our customers&apos; engineering teams.
               </p>

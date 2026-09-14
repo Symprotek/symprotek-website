@@ -88,7 +88,7 @@ export default function ServicesPage() {
           <div className="mt-5 space-y-4 text-base leading-relaxed text-brand-gray">
             <p>
               Most electronics programs do not fail on the assembly line. They
-              fail in the seams — between the designer and the manufacturer,
+              fail in the seams: between the designer and the manufacturer,
               between the manufacturer and the component broker, between a
               prototype that worked and a production run that has to be
               re-qualified because the vendor changed.

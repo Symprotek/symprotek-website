@@ -18,7 +18,7 @@ export default function ThankYouPage() {
           aria-hidden="true"
         />
         <h1 className="mt-6 text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">
-          Thanks — we&apos;ve got your message
+          Thanks, we&apos;ve got your message
         </h1>
         <p className="mt-4 text-base leading-relaxed text-brand-gray">
           A member of our team will review your request and get back to you
