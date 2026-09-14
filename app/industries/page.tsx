@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { ExternalLink } from "lucide-react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ContentGrid from "@/components/ContentGrid";
 import CtaSection from "@/components/CtaSection";
 import PageHeader from "@/components/PageHeader";
-import { industries } from "@/lib/data";
+import { certifications, industries } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Industries We Serve",
@@ -23,7 +24,7 @@ export default function IndustriesPage() {
     <>
       <PageHeader
         title="Industries We Serve"
-        description="Regulated, long-lifecycle programs where traceability and a domestic supply chain are requirements, not preferences."
+        description="Electronics manufacturing for programs that depend on quality, traceability, and reliable lifecycle support."
       />
       <Breadcrumbs crumbs={[{ name: "Industries", href: "/industries" }]} />
 
@@ -34,25 +35,49 @@ export default function IndustriesPage() {
           </h2>
           <div className="mt-5 space-y-4 text-base leading-relaxed text-brand-gray">
             <p>
-              Symprotek is not the right partner for every electronics program.
-              We are a poor fit for consumer hardware chasing the lowest
-              possible unit cost at very high volume.
+              Symprotek supports defense, medical, industrial, and semiconductor
+              programs with disciplined process controls, component and lot
+              traceability, and responsive engineering collaboration.
             </p>
             <p>
-              We are built for the opposite case: programs where a board has to
-              be traceable years after it shipped, where the supply chain has to
-              stay domestic, where a component going end-of-life is a program
-              risk rather than an inconvenience, and where the certifications on
-              the manufacturer&apos;s wall determine whether the work can be
-              awarded at all.
+              Our team works across PCB assembly, design support, supply chain
+              planning, and production so customers can move from early builds
+              into ongoing manufacturing with one accountable partner.
             </p>
             <p>
-              Each vertical below maps to the quality systems, process controls,
-              and manufacturing capabilities its programs require. Those
-              requirements are often the gate a supplier has to clear before
-              anyone evaluates price or lead time.
+              Our quality systems, registrations, and manufacturing credentials
+              support customer qualification and the documentation needs of
+              regulated, long-lifecycle products.
             </p>
           </div>
+
+          <ul
+            className="mt-6 flex flex-wrap gap-2"
+            aria-label="Certifications and manufacturing credentials"
+          >
+            {certifications.map((certification) => (
+              <li
+                key={certification.label}
+                className="flex min-h-11 items-center gap-2 rounded-lg border border-gray-200 bg-brand-light px-3 py-2 text-xs font-semibold text-brand-dark"
+              >
+                <span>{certification.label}</span>
+                {certification.certPdf && (
+                  <a
+                    href={certification.certPdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${certification.validity ? "View historical" : "View"} ${certification.label} documentation (PDF, opens in a new tab)`}
+                    className="inline-flex min-h-7 items-center gap-1 rounded px-1.5 text-brand-red transition-colors hover:bg-white hover:text-brand-red-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red"
+                  >
+                    {certification.validity
+                      ? "Historical document"
+                      : "View documentation"}
+                    <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
