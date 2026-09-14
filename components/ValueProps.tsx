@@ -10,10 +10,10 @@ export default function ValueProps() {
     <section className="bg-white py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-red">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d13438]">
             Why Choose Symprotek
           </p>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0066b8] sm:text-4xl">
             More Than a Contract Manufacturer
           </h2>
           <p className="mt-3 text-base leading-relaxed text-brand-gray">
@@ -29,12 +29,12 @@ export default function ValueProps() {
               <Link
                 key={prop.title}
                 href={prop.href}
-                className="group flex flex-col rounded-xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-red hover:shadow-lift"
+                className="group flex flex-col rounded-xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#d13438] hover:shadow-lift"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-light text-brand-red transition-colors group-hover:bg-brand-red group-hover:text-white">
+                <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-light text-[#d13438] transition-colors group-hover:bg-[#d13438] group-hover:text-white">
                   <Icon className="h-6 w-6" aria-hidden="true" />
                 </span>
-                <h3 className="mt-5 text-base font-bold text-brand-dark transition-colors group-hover:text-brand-red">
+                <h3 className="mt-5 text-base font-bold text-[#0066b8] transition-colors group-hover:text-[#d13438]">
                   {prop.title}
                 </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-brand-gray">

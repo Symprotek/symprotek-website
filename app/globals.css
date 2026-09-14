@@ -78,6 +78,17 @@ textarea {
     @apply inline-flex min-h-[2.75rem] items-center justify-center gap-2 rounded-lg border-2 border-white px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:text-brand-red;
   }
 
+  /* Vibrant variants used only on the homepage (Hero, SupplyChain, and
+     CtaSection's `tone="vibrant"`), so the site-wide button colors above are
+     untouched everywhere else while this look is being tried out. */
+  .btn-primary-vibrant {
+    @apply inline-flex min-h-[2.75rem] items-center justify-center gap-2 rounded-lg bg-[#d13438] px-6 py-3 text-sm font-semibold text-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#ab2b2e] hover:shadow-lift;
+  }
+
+  .btn-outline-vibrant {
+    @apply inline-flex min-h-[2.75rem] items-center justify-center gap-2 rounded-lg border-2 border-white px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:text-[#d13438];
+  }
+
   /* Icon-only controls in the header. 44x44 is the accessible minimum. */
   .tap-target {
     @apply inline-flex h-11 w-11 items-center justify-center rounded-lg;
