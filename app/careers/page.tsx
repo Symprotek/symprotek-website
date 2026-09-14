@@ -97,7 +97,10 @@ export default function CareersPage() {
                   <p className="mt-3 text-sm leading-relaxed text-brand-gray">
                     {role.summary}
                   </p>
-                  <Link href="/contact" className="btn-primary mt-4">
+                  <Link
+                    href={`/careers/apply?role=${encodeURIComponent(role.title)}`}
+                    className="btn-primary mt-4"
+                  >
                     Apply for this role
                   </Link>
                 </li>
@@ -114,7 +117,7 @@ export default function CareersPage() {
                 engineering people. Send us your resume and we&apos;ll keep it
                 on file.
               </p>
-              <Link href="/contact" className="btn-primary mt-6">
+              <Link href="/careers/apply" className="btn-primary mt-6">
                 Send us your resume
               </Link>
             </div>
