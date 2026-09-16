@@ -19,15 +19,12 @@ export const metadata: Metadata = {
   },
 };
 
-/* TODO — CONFIRM HR EMAIL BEFORE LAUNCH.
-   Per PR #4 review: applications go to Maria directly rather than through a
-   resume-upload form/API (removed here — see that PR's discussion). This
-   page instead points candidates at an email, prefilled via mailto. There is
-   no dedicated hiring address anywhere in this codebase, so it falls back to
-   companyInfo.email (sales@symprotek.com) — swap in Maria's real address
-   before this goes live, and consider giving it its own companyInfo field
-   (e.g. `hiringEmail`) rather than reusing the sales inbox long-term.        */
-const APPLICATION_EMAIL = companyInfo.email;
+/* Per PR #4 review: applications go directly to Maria rather than through a
+   resume-upload form/API (removed here — see that PR's discussion), CC'd to
+   the rest of the hiring team. Kept local to this page rather than added to
+   companyInfo since nothing else in the site needs them. */
+const APPLICATION_EMAIL = "mariam@symprotek.com";
+const APPLICATION_CC = ["paul@symprotek.com", "hl@symprotek.com", "echon@symprotek.com"];
 
 interface ApplyPageProps {
   searchParams: { role?: string };
@@ -47,7 +44,17 @@ export default function ApplyPage({ searchParams }: ApplyPageProps) {
     "Name:",
     "Phone:",
   ].join("\n");
-  const mailtoHref = `mailto:${APPLICATION_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  /*
+    Built by hand rather than with URLSearchParams: URLSearchParams encodes
+    spaces as "+" (the application/x-www-form-urlencoded convention), but
+    RFC 6068 mailto URIs expect %20 — several desktop mail clients render a
+    literal "+" in the subject/body instead of a space otherwise.
+  */
+  const mailtoHref =
+    `mailto:${APPLICATION_EMAIL}` +
+    `?cc=${encodeURIComponent(APPLICATION_CC.join(","))}` +
+    `&subject=${encodeURIComponent(subject)}` +
+    `&body=${encodeURIComponent(body)}`;
 
   return (
     <>
