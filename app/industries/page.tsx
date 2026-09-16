@@ -66,11 +66,11 @@ export default function IndustriesPage() {
                     href={certification.certPdf}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${certification.validity ? "View historical" : "View"} ${certification.label} documentation (PDF, opens in a new tab)`}
+                    aria-label={`View ${certification.label} documentation (PDF, opens in a new tab)`}
                     className="inline-flex min-h-7 items-center gap-1 rounded px-1.5 text-brand-red transition-colors hover:bg-white hover:text-brand-red-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red"
                   >
                     {certification.validity
-                      ? "Historical document"
+                      ? "View document"
                       : "View documentation"}
                     <ExternalLink className="h-3 w-3" aria-hidden="true" />
                   </a>
