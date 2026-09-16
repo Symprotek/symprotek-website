@@ -92,8 +92,8 @@ export async function sendContactEmail(
 
   const resend = new Resend(apiKey);
   const subject = payload.company.trim()
-    ? `Website enquiry — ${payload.name} (${payload.company})`
-    : `Website enquiry — ${payload.name}`;
+    ? `Website enquiry: ${payload.name} (${payload.company})`
+    : `Website enquiry: ${payload.name}`;
 
   const { error } = await resend.emails.send({
     from: FROM_EMAIL,
@@ -115,7 +115,7 @@ export async function sendContactEmail(
       from: FROM_EMAIL,
       to: payload.email,
       replyTo: TO_EMAIL,
-      subject: "We've received your message — Symprotek Corporation",
+      subject: "Symprotek Corporation: We've received your message",
       html: autoReplyHtml(payload),
     });
   } catch (autoReplyError) {

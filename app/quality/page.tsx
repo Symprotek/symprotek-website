@@ -103,7 +103,7 @@ export default function QualityPage() {
             <p>
               Any manufacturer can inspect a board at the end of the line. What
               separates suppliers for regulated work is whether the controls,
-              documentation, and traceability existed the whole way through — and
+              documentation, and traceability existed the whole way through, and
               whether the records are still retrievable when someone asks about
               a unit built years ago.
             </p>

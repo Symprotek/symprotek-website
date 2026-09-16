@@ -45,7 +45,7 @@ export const services: Service[] = [
     sections: [
       {
         heading: "Turnkey PCB Assembly",
-        body: "Symprotek manages the entire assembly process end to end — component sourcing, SMT and through-hole placement, reflow and wave soldering, and final inspection — so you have a single point of accountability from BOM to finished board.",
+        body: "Symprotek manages the entire assembly process end to end (component sourcing, SMT and through-hole placement, reflow and wave soldering, and final inspection), so you have a single point of accountability from BOM to finished board.",
       },
       {
         heading: "Prototype Through Production",
@@ -77,7 +77,7 @@ export const services: Service[] = [
       },
       {
         heading: "Flexible Scheduling",
-        body: "Quick-turn jobs are scheduled alongside — not behind — standard production, so urgent programs get the attention they need.",
+        body: "Quick-turn jobs are scheduled alongside (not behind) standard production, so urgent programs get the attention they need.",
       },
       {
         heading: "Same Quality Standards",
@@ -133,7 +133,7 @@ export const services: Service[] = [
       },
       {
         heading: "Design for Excellence (DFx)",
-        body: "Every design passes through DFM, DFT, and DFA review so issues are caught on paper — not on the production floor.",
+        body: "Every design passes through DFM, DFT, and DFA review so issues are caught on paper, not on the production floor.",
       },
       {
         heading: "Collaborative Engineering",
@@ -262,7 +262,7 @@ export const industries: Industry[] = [
     sections: [
       {
         heading: "In the Middle of Silicon Valley",
-        body: "Our Milpitas facility sits inside the semiconductor equipment corridor. For OEMs headquartered nearby, that means engineers can be on our floor the same day a build question comes up — a materially different relationship than managing a build across an ocean and twelve time zones.",
+        body: "Our Milpitas facility sits inside the semiconductor equipment corridor. For OEMs headquartered nearby, that means engineers can be on our floor the same day a build question comes up: a materially different relationship than managing a build across an ocean and twelve time zones.",
       },
       {
         heading: "High-Mix, High-Complexity Builds",

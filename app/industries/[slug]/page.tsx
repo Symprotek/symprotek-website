@@ -146,9 +146,9 @@ export default function IndustryDetailPage({
                       />
                       <span>
                         <span className="font-semibold text-brand-dark">
-                          {service.title}
+                          {service.title}:
                         </span>{" "}
-                        — {service.summary}
+                        {service.summary}
                       </span>
                     </Link>
                   </li>

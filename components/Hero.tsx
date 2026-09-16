@@ -104,7 +104,7 @@ export default function Hero() {
 
           <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-300 sm:mt-6 sm:text-lg">
             Turnkey PCB assembly, engineering support, and a supply chain built
-            for regulated, long-lifecycle programs — assembled in the USA at our
+            for regulated, long-lifecycle programs, assembled in the USA at our
             Milpitas, California facility.
           </p>
 
@@ -128,15 +128,27 @@ export default function Hero() {
           {heroCerts.map((cert) => (
             <li
               key={cert.label}
-              className="flex h-14 items-center justify-center rounded-lg bg-white/95 px-4 shadow-soft sm:w-40"
+              className="flex h-14 items-center justify-center rounded-lg bg-white px-3 shadow-soft sm:h-16 sm:w-40"
             >
               {cert.logo ? (
+                /*
+                  Same blend as CertBadge/CertCard: most of these logos are
+                  baked onto an opaque white rectangle, and against this
+                  pill's own white (previously bg-white/95, a hair off pure
+                  white) that rectangle showed as a faint seam. mix-blend
+                  -multiply drops the logo's white into the pill instead.
+
+                  max-h-full (not a fixed max-h-N) so the logo scales up to
+                  fill the pill's actual height instead of leaving a fixed
+                  margin — enlarging the box no longer requires separately
+                  tuning the logo's own cap.
+                */
                 <Image
                   src={cert.logo}
                   alt={`${cert.label} certified`}
                   width={160}
                   height={80}
-                  className="max-h-8 w-full object-contain"
+                  className="max-h-full w-full rounded object-contain mix-blend-multiply"
                 />
               ) : (
                 <span className="text-center text-xs font-bold uppercase tracking-wide text-brand-dark">
