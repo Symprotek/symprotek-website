@@ -26,6 +26,11 @@ export const metadata: Metadata = {
 const APPLICATION_EMAIL = "mariam@symprotek.com";
 const APPLICATION_CC = ["paul@symprotek.com", "hla@symprotek.com", "echon@symprotek.com"];
 
+/* Hiring-team hours differ from companyInfo.hours (the general business
+   hours shown on /facility and elsewhere), so this is kept local to this
+   page rather than changing the shared value. */
+const HIRING_HOURS = "Monday – Friday, 7:30 AM – 3:30 PM PT";
+
 interface CareersPageProps {
   searchParams: { role?: string };
 }
@@ -81,9 +86,9 @@ export default function CareersPage({ searchParams }: CareersPageProps) {
               </p>
             )}
 
-            <ul className="mt-3 space-y-2 text-sm leading-relaxed text-brand-gray">
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-brand-gray">
               <li>Your full name and phone number</li>
-              <li>The role you&apos;re interested in, if any</li>
+              <li>The role you&apos;re interested in</li>
               <li>Your resume, attached as a PDF</li>
             </ul>
 
@@ -131,7 +136,7 @@ export default function CareersPage({ searchParams }: CareersPageProps) {
               </li>
               <li className="flex items-start gap-2.5 py-1.5">
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-red" />
-                <span>{companyInfo.hours}</span>
+                <span>{HIRING_HOURS}</span>
               </li>
             </ul>
           </div>
