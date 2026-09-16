@@ -56,7 +56,7 @@ export default function CareersPage() {
           <div className="mt-5 space-y-4 text-base leading-relaxed text-brand-gray">
             <p>
               We build electronics for defense platforms, medical devices, and
-              federal programs — hardware where the work has to be right, and
+              federal programs: hardware where the work has to be right, and
               where the record of how it was built matters for years after it
               ships.
             </p>

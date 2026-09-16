@@ -9,7 +9,7 @@ import { companyInfo } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Facility & Equipment",
   description:
-    "Symprotek's PCB assembly facility in Milpitas, California — SMT and through-hole lines, AOI and X-ray inspection, flying probe and in-circuit test.",
+    "Symprotek's PCB assembly facility in Milpitas, California: SMT and through-hole lines, AOI and X-ray inspection, flying probe and in-circuit test.",
   alternates: { canonical: "/facility" },
   openGraph: {
     title: "Facility & Equipment | Symprotek Corporation",
@@ -99,7 +99,7 @@ export default function FacilityPage() {
               Operating one facility rather than several is a deliberate choice.
               It means a prototype and the production run that follows it are
               built on the same lines, by the same operators, under the same
-              quality system — and it means there is exactly one place to visit
+              quality system, and it means there is exactly one place to visit
               when you want to see how your hardware is made.
             </p>
             <p>
@@ -176,7 +176,7 @@ export default function FacilityPage() {
             >
               Ask us
             </Link>{" "}
-            — we&apos;ll send current documentation.
+            and we&apos;ll send current documentation.
           </p>
         </div>
       </section>
