@@ -39,12 +39,12 @@ const nextConfig = {
         destination: "/services/supply-chain",
         permanent: true,
       },
-      // Roadmap's stated default target (its alternative was "a dedicated
-      // page if program management gets its own copy" — flagged separately
-      // as a question rather than guessed).
+      // Confirmed choice (over the roadmap's stated default of /services):
+      // EOL/obsolescence-tracking content already lives on the supply-chain
+      // page's "Risk Management" section, so this is the closer match today.
       {
         source: "/article-158/program-management",
-        destination: "/services",
+        destination: "/services/supply-chain",
         permanent: true,
       },
       {
