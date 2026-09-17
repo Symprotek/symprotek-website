@@ -11,8 +11,9 @@ import { certifications, industries, services } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "PCB Assembly in Milpitas, CA | Symprotek Corporation",
+  // Trimmed to ~155 chars for SEO (SEO-ROADMAP.md, Section 3.1) — was 185.
   description:
-    "Turnkey PCB assembly, supply chain, and quick-turn manufacturing from Milpitas, California. ITAR registered, SBA 8(a) certified, ISO 9001 and ISO 13485. Assembled in the USA since 1994.",
+    "Turnkey PCB assembly, supply chain, and quick-turn manufacturing in Milpitas, CA since 1994. ITAR registered, SBA 8(a), ISO 9001 and ISO 13485.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "PCB Assembly in Milpitas, CA | Symprotek Corporation",

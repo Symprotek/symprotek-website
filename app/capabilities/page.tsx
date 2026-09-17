@@ -8,12 +8,14 @@ import { CertBadge } from "@/components/CertBadge";
 import { certifications, companyInfo } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Capabilities",
+  // Was the generic "Capabilities" (SEO-ROADMAP.md, Section 3.1) — carries
+  // more keyword weight now instead of just the nav label.
+  title: "PCB Assembly Capabilities & Equipment",
   description:
     "SMT and through-hole assembly, AOI and X-ray inspection, flying probe and in-circuit testing, and certified quality systems at Symprotek Corporation in Milpitas, California.",
   alternates: { canonical: "/capabilities" },
   openGraph: {
-    title: "Capabilities | Symprotek Corporation",
+    title: "PCB Assembly Capabilities & Equipment | Symprotek Corporation",
     description:
       "Assembly, inspection, testing, and quality capabilities for demanding electronics programs.",
     url: "/capabilities",

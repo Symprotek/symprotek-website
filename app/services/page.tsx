@@ -8,12 +8,14 @@ import PageHeader from "@/components/PageHeader";
 import { services } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Services",
+  // Was the generic "Services" (SEO-ROADMAP.md, Section 3.1) — carries the
+  // primary keyword now instead of just the nav label.
+  title: "PCB Assembly & Manufacturing Services",
   description:
     "PCB assembly, global supply chain, design, and quick-turn manufacturing services from Symprotek Corporation in Milpitas, California.",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Services | Symprotek Corporation",
+    title: "PCB Assembly & Manufacturing Services | Symprotek Corporation",
     description:
       "Turnkey PCB assembly, supply chain, design, and quick-turn manufacturing services.",
     url: "/services",
